@@ -1,25 +1,26 @@
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import {
-  MD3LightTheme as DefaultTheme, PaperProvider, Button, Text,
-
+  MD3LightTheme as DefaultTheme, PaperProvider
 } from 'react-native-paper';
 import Home from './components/Home';
 import MyTicket from './components/MyTicket';
-
+import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 const Stack = createNativeStackNavigator();
 
 export default function App() {
   return (
-    <NavigationContainer>
-      <PaperProvider theme={theme}>
-        <Stack.Navigator initialRouteName="Home">
-          <Stack.Screen name="Home" component={Home} />
-          <Stack.Screen name="MyTicket" component={MyTicket} />
-        </Stack.Navigator>
-      </PaperProvider>
-    </NavigationContainer>
+    <SafeAreaProvider>
+      <NavigationContainer>
+        <PaperProvider theme={theme}>
+          <Stack.Navigator initialRouteName="Home">
+            <Stack.Screen name="Home" component={Home} options={{ headerShown: false }} />
+            <Stack.Screen name="MyTicket" component={MyTicket} options={{ headerShown: false }} />
+          </Stack.Navigator>
+        </PaperProvider>
+      </NavigationContainer>
+    </SafeAreaProvider>
   );
 }
 

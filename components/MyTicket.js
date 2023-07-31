@@ -2,16 +2,18 @@ import { useState } from "react";
 import { Image, Text, View } from "react-native";
 import { useTheme, Modal, Portal } from "react-native-paper";
 import ModalDetails from "./ModalDetails";
+import { useSafeAreaInsets, } from 'react-native-safe-area-context';
 
 export default function MyTicket(props) {
     const { lightGrey, blue } = useTheme().colors
     const [openModal, setOpenModal] = useState(false)
     const text = 'Sali a bordo e bippa'
+    const insets = useSafeAreaInsets();
+
     setTimeout(() => {
         setOpenModal(true)
     }, 3000);
     const hideModal = () => {
-        console.log('hide')
         setOpenModal(false)
     }
     return (
@@ -20,8 +22,11 @@ export default function MyTicket(props) {
             height: "100%",
             backgroundColor: lightGrey,
             justifyContent: 'space-between',
-            paddingTop: 80,
-            paddingBottom: 15,
+            // Paddings to handle safe area
+            paddingTop: insets.top + 80,
+            paddingBottom: insets.bottom + 10,
+            paddingLeft: insets.left,
+            paddingRight: insets.right,
         }}>
             <Portal>
                 <Modal visible={openModal} onDismiss={hideModal}>
