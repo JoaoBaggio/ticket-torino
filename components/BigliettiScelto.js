@@ -1,6 +1,7 @@
 import { View, Image, Text, TouchableOpacity } from "react-native";
 import { IconButton, } from "react-native-paper";
 import { useTheme } from 'react-native-paper';
+import moment from "moment";
 
 export default function BigliettiScelto(props) {
     const { source, navigation } = props;
@@ -9,6 +10,8 @@ export default function BigliettiScelto(props) {
     const handlePress = () => {
         navigation.navigate('MyTicket')
     }
+    moment.locale('it')
+    const time = moment().add(90, 'minutes').format('HH:mm')
 
     return (
         <TouchableOpacity onPress={handlePress} style={{
@@ -59,12 +62,12 @@ export default function BigliettiScelto(props) {
                     fontSize: 15,
                     fontWeight: 'bold',
                 }}>
-                    bippami</Text>
+                    scadrà alle {time}</Text>
                 <Text style={{
                     color: blue,
                     paddingTop: 0,
                     paddingLeft: 15,
-                    fontSize: 15,
+                    fontSize: 12,
                     fontStyle: 'italic',
                 }}>
                     bippami al validatore o al tornello</Text>

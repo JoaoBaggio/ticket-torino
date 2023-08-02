@@ -3,13 +3,13 @@ import { Button, Text } from "react-native-paper";
 import { useTheme } from 'react-native-paper';
 
 
-export default function () {
+export default function (props) {
     const { blue, lightBlue } = useTheme().colors;
 
     return (
         <View style={{
             flexDirection: 'row',
-            justifyContent: 'space-between',
+            // justifyContent: 'space-between',
             alignContent: 'center',
             alignItems: 'center',
             width: "100%",
@@ -19,20 +19,15 @@ export default function () {
                 backgroundColor: lightBlue,
                 borderTopRightRadius: 20,
                 borderBottomRightRadius: 20,
+                marginRight: '10%',
             }}>
-                <Button icon="menu" textColor={blue} labelStyle={{ fontSize: 25 }} />
+                <Button icon="close" textColor={blue} labelStyle={{ fontSize: 25 }} />
             </View>
             <Text style={{
                 color: blue,
                 fontSize: 18,
-            }}>BIGLIETTI COMPRATI</Text>
-            <View style={{
-                backgroundColor: lightBlue,
-                borderTopLeftRadius: 20,
-                borderBottomLeftRadius: 20,
-            }}>
-                <Button icon="refresh" textColor={blue} labelStyle={{ fontSize: 25 }} />
-            </View>
+            }}>BIGLIETTO SCELTO</Text>
+
         </View>
     )
 }

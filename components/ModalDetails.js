@@ -8,6 +8,10 @@ export default function ModalDetails(props) {
     const textStyle = {
         fontSize: 17,
         color: blue,
+        justifyContent: 'center',
+        alignItems: 'center',
+        alignSelf: 'center',
+        textAlign: 'center',
     }
     return (
         <View style={{
@@ -28,7 +32,8 @@ export default function ModalDetails(props) {
                 <Text style={{
                     color: 'white',
                     fontSize: 25,
-                }}>City Smartphone</Text>
+                    fontWeight: 'bold',
+                }}>Biglietto convalidato</Text>
             </View>
             <View style={{
                 backgroundColor: 'white',
@@ -37,7 +42,8 @@ export default function ModalDetails(props) {
                 paddingTop: 15,
                 paddingRight: 15,
             }}>
-                <Text style={textStyle}>Tipo: Valido 100 minuti, rete URBANA + SUBURBANA GTT</Text>
+                <Text style={textStyle}>Il biglietto è stato convalidato correttamente!</Text>
+                {/* <Text style={textStyle}>Tipo: Valido 100 minuti, rete URBANA + SUBURBANA GTT</Text>
                 <Text style={textStyle}>Durata: Un viaggio in METRO</Text>
                 <Text style={textStyle}>Data di acquisto:29-07-2023 22:10</Text>
                 <Text style={textStyle}>Scadenza: 28-07-2024 22:10</Text>
@@ -48,14 +54,14 @@ export default function ModalDetails(props) {
                 <Text style={textStyle}>AE110BE1-00084090</Text>
                 <Text style={textStyle}>Prima validazione: --</Text>
                 <Text style={textStyle}>Ultima validazione: --</Text>
-                <Text style={textStyle}>Viaggi residui: 1</Text>
+                <Text style={textStyle}>Viaggi residui: 1</Text> */}
             </View>
             <View style={{
                 backgroundColor: 'white',
                 width: "100%",
                 alignItems: 'center',
                 paddingTop: 10,
-                paddingBottom: 10,
+                paddingBottom: 30,
             }}>
                 <ButtonDefault label='OK' onPress={onPress} />
             </View>
