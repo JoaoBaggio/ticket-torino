@@ -1,7 +1,6 @@
 import { View, Image, Text, TouchableOpacity } from "react-native";
 import { IconButton, } from "react-native-paper";
 import { useTheme } from 'react-native-paper';
-import moment from "moment";
 
 export default function BigliettiScelto(props) {
     const { source, navigation } = props;
@@ -10,9 +9,9 @@ export default function BigliettiScelto(props) {
     const handlePress = () => {
         navigation.navigate('MyTicket')
     }
-    moment.locale('it')
-    const time = moment().add(90, 'minutes').format('HH:mm')
-
+    var now = new Date();
+    now.setMinutes(now.getMinutes() + 90); // timestamp
+    const time = now.toLocaleString('en-GB', { hour12: false, hour: '2-digit', minute: '2-digit', timeZone: 'Europe/Rome' })
     return (
         <TouchableOpacity onPress={handlePress} style={{
             zIndex: 1,
